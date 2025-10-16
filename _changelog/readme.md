@@ -1,3 +1,16 @@
+## Changelog
+
+## 16 oktober
+- Added the first stepped to brands index, create, show
+- Added some extra styling things
+
+## 15 oktober
+- Added the first two databases (cans & brands)
+- Filled Brands with multiple brands
+- Made some ERD changes
+  ![Schermafbeelding 2025-10-15 105752.png](_changelog/images/Schermafbeelding 2025-10-15 105752.png)
+
+
 ## 14 oktober
 - Initial version of the changelog created.
 - user stories added:
