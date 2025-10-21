@@ -1,5 +1,13 @@
 ## Changelog
 
+## 22 oktober
+- Added multiple databases (reviews, can_user & images)
+- Changed user_collection to Can_User
+
+## 21 oktober
+- Added can, review and user_collection controller + model.
+- Fixed some nav & footer things, img doesn't work yet.
+
 ## 16 oktober
 - Added the first stepped to brands index, create, show
 - Added some extra styling things

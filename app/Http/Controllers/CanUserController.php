@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserCollectionController extends Controller
+class CanUserController extends Controller
 {
     //
 }

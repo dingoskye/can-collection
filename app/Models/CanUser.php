@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class userCollection extends Model
+class CanUser extends Model
 {
     //
 }
