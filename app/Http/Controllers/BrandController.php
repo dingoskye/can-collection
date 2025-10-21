@@ -9,17 +9,18 @@ class BrandController extends Controller
 {
     public function index()
     {
-        return view('brands.index');
-    }
-
-    public function show(Brand $brand)
-    {
-        return view('brands.show', compact('brand'));
+        $brands = Brand::all();
+        return view('brands.index', compact('brands'));
     }
 
     public function create()
     {
         return view('brands.create');
+    }
+
+    public function show(Brand $brand)
+    {
+        return view('brands.show', compact('brand'));
     }
 
     public function store(Request $request)
