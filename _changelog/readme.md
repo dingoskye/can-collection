@@ -1,5 +1,11 @@
 ## Changelog
 
+## 23 oktober
+- Added starting code for crud functionality in all of the controllers and some of the models
+- Start on can views
+- Added routes for cans, collection and review
+- Changed a little error in brands/create.blade.php
+
 ## 22 oktober
 - Added multiple databases (reviews, can_user & images)
 - Changed user_collection to Can_User

@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CanController;
+use App\Http\Controllers\CanUserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,3 +37,31 @@ Route::get('/brands/{id}', [BrandController::class, 'show'])
     ->name('brands.details');
 Route::post('/brands', [BrandController::class, 'store'])
     ->name('brands.store');
+
+Route::get('/cans', [CanController::class, 'index'])
+    ->name('cans.index');
+Route::get('/cans/create', [CanController::class, 'create'])
+    ->name('cans.create');
+Route::get('/cans/{id}', [CanController::class, 'show'])
+    ->name('cans.details');
+Route::post('/cans', [CanController::class, 'store'])
+    ->name('cans.store');
+
+Route::get('/collection', [CanUserController::class, 'index'])
+    ->name('collection.index');
+Route::get('/collection/create', [CanUserController::class, 'create'])
+    ->name('collection.create');
+Route::get('/collection/{id}', [CanUserController::class, 'show'])
+    ->name('collection.details');
+Route::post('/collection', [CanUserController::class, 'store'])
+    ->name('collection.store');
+
+Route::get('/reviews', [ReviewController::class, 'index'])
+    ->name('reviews.index');
+Route::get('/reviews/create', [ReviewController::class, 'create'])
+    ->name('reviews.create');
+Route::get('/reviews/{id}', [ReviewController::class, 'show'])
+    ->name('reviews.details');
+Route::post('/reviews', [ReviewController::class, 'store'])
+    ->name('reviews.store');
+

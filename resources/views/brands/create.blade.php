@@ -1,5 +1,5 @@
 <x-app-layout>
-    <form action="{{route('products.store')}}" method="post">
+    <form action="{{route('brands.store')}}" method="post">
         @csrf
 
         <div>
