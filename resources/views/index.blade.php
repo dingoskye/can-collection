@@ -1,3 +1,16 @@
-<x-layout>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque excepturi facilis in tempore! Atque consectetur corporis, deserunt, earum esse explicabo ipsam laboriosam libero quae quo sed totam ullam voluptas voluptatibus?</p>
-</x-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <h1 class="text-2xl font-bold mb-4">Welcome to the Soda Can Review App</h1>
+    </x-slot>
+
+    <x-slot>
+        <div class="space-y-4">
+            <a href="{{ route('brands.index') }}" class="block w-full text-center border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md text-xl font-semibold">
+                View Brands
+            </a>
+            <a href="{{ route('cans.index') }}" class="block w-full text-center border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md text-xl font-semibold">
+                View Cans
+            </a>
+        </div>
+    </x-slot>
+</x-app-layout>

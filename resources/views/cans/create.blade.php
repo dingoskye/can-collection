@@ -1,5 +1,11 @@
 <x-app-layout>
-    <form action="{{route('cans.store')}}" method="post">
+    <x-slot name="header">
+        <h1 class="text-xl font-bold">
+            {{ __('Create a new can') }}
+        </h1>
+    </x-slot>
+    <x-slot>
+    <form action="{{ route('cans.store')}}" method="post">
         @csrf
 
         <div>
@@ -91,4 +97,5 @@
         </div>
         <input type="submit" name="submit" value="Create"/>
     </form>
+    </x-slot>
 </x-app-layout>

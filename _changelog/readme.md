@@ -1,10 +1,19 @@
 ## Changelog
 
+## 24 oktober
+- Updated can view (show, create, edit)
+- Added can model relationships
+- Added can validation in CanController
+- Updated cans database migration
+- Added edit page for cans
+- Doesn't work yet
+
 ## 23 oktober
 - Added starting code for crud functionality in all of the controllers and some of the models
 - Start on can views
 - Added routes for cans, collection and review
 - Changed a little error in brands/create.blade.php
+- Updated navbar links
 
 ## 22 oktober
 - Added multiple databases (reviews, can_user & images)

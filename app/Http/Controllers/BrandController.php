@@ -42,6 +42,6 @@ class BrandController extends Controller
 
         $brand->save();
 
-        return redirect()->route('brands.show', $brand)->with('success', 'Brand created successfully.');
+        return redirect()->route('brands.details', $brand)->with('success', 'Brand created successfully.');
     }
 }
