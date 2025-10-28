@@ -3,7 +3,6 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CanController;
 use App\Http\Controllers\CanUserController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
@@ -48,10 +47,9 @@ Route::post('/cans', [CanController::class, 'store'])
     ->middleware('auth');
 Route::get('/cans/{id}', [CanController::class, 'show'])
     ->name('cans.show');
-Route::get('/cans/create/{id}', [CanController::class, 'edit'])
-    ->name('cans.edit')
-    ->middleware('auth');
-Route::post('/cans', [CanController::class, 'update'])
+Route::get('/cans/edit/{id}', [CanController::class, 'edit'])
+    ->name('cans.edit');
+Route::post('/cans/update/{id}', [CanController::class, 'update'])
     ->name('cans.update');
 
 Route::get('/collection', [CanUserController::class, 'index'])
@@ -62,6 +60,7 @@ Route::get('/collection/{id}', [CanUserController::class, 'show'])
     ->name('collection.details');
 Route::post('/collection', [CanUserController::class, 'store'])
     ->name('collection.store');
+
 
 Route::get('/reviews', [ReviewController::class, 'index'])
     ->name('reviews.index');

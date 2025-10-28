@@ -5,9 +5,8 @@
         </h1>
     </x-slot>
     <x-slot>
-    <form action="{{ route('cans.store')}}" method="post">
+    <form action="{{route('cans.store')}}" method="post">
         @csrf
-
         <div>
             <label for="name">Name</label>
             <input type="text" value="{{old('name')}}" name="name" id="name"/>
@@ -42,8 +41,8 @@
             <label for="sugarfree">Sugarfree</label>
             <select id="sugarfree" name="sugarfree">
                 <option value="">-- Choose an option --</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
             </select>
             <x-input-error :messages="$errors->get('sugarfree')" class="mt-2" />
         </div>
@@ -56,8 +55,8 @@
             <label for="limited_edition">Limited edition</label>
             <select id="limited_edition" name="limited_edition">
                 <option value="">-- Choose an option --</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
             </select>
             <x-input-error :messages="$errors->get('limited_edition')" class="mt-2" />
         </div>
@@ -70,8 +69,8 @@
             <label for="carbonated">Carbonated</label>
             <select id="carbonated" name="carbonated">
                 <option value="">-- Choose an option --</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
             </select>
             <x-input-error :messages="$errors->get('carbonated')" class="mt-2" />
         </div>

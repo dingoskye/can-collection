@@ -11,7 +11,7 @@
             <div class="flex-1 py-2 px-4 bg-review border-4 border-solid border-reviewborder rounded-2xl">
                 <h2 class="text-lg text-center">Name: {{$can->name}}</h2>
                 <p>Description: {{ $can->description }}</p>
-                <a class="hover:text-nav" href="/can/{{ $can->id }}">Details</a>
+                <a class="hover:text-nav" href="{{ route('cans.show', $can->id) }}">Details</a>
             </div>
         @endforeach
     </section>

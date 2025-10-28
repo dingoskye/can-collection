@@ -11,7 +11,7 @@
             <div class="flex-1 py-2 px-4 bg-review border-4 border-solid border-reviewborder rounded-2xl">
                 <h2 class="text-lg text-center">Name: {{$brand->name}}</h2>
                 <p>Description: {{ $brand->description }}</p>
-                <a class="hover:text-nav" href="/brands/{{ $brand->id }}">Details</a>
+                <a class="hover:text-nav" href="{{ route('brands.details', $brand->id) }}">Details</a>
             </div>
         @endforeach
     </section>

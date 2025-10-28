@@ -22,11 +22,6 @@ class CanController extends Controller
         return view('cans.create', compact('brands'));
     }
 
-    public function show(Can $can)
-    {
-        return view('cans.show', compact('can'));
-    }
-
     public function store(Request $request)
     {
         $request->validate([
@@ -60,11 +55,17 @@ class CanController extends Controller
         $can->country = $request->input('country');
         $can->sku = $request->input('sku');
         $can->gtin = $request->input('gtin');
-        $can->created_by = auth()->id();
+        $can->created_by = $request->input('user_id');
 
         $can->save();
 
         return redirect()->route('cans.show', $can)->with('success', 'Can created successfully.');
+    }
+
+    public function show(Can $can)
+    {
+        $can = Can::find($id);
+        return view('cans.show', compact('can'));
     }
 
     public function edit(Can $can)
@@ -121,7 +122,7 @@ class CanController extends Controller
             'country' => $request->input('country'),
             'sku' => $request->input('sku'),
             'gtin' => $request->input('gtin'),
-            'updated_by' => auth()->id(),
+            'updated_by' => $request->input('user_id'),
         ]);
 
         $can->save();

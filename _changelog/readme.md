@@ -1,5 +1,10 @@
 ## Changelog
 
+## 28 oktober
+- Static images works
+- Changed some routes
+- Ophalen van de id lukt nog niet
+
 ## 24 oktober
 - Updated can view (show, create, edit)
 - Added can model relationships

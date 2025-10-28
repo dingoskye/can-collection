@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <img src="../../images/collectacan-high-resolution-logo-transparent.png" alt="Logo" class="block h-9 w-auto text-gray-400">
+                        <img src="{{ Vite::asset('resources/images/collectacan-high-resolution-logo-transparent.png') }}" alt="Logo" class="block h-9 w-auto text-gray-400">
                     </a>
                 </div>
 

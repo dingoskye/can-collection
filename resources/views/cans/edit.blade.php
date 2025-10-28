@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h1 class="text-xl font-bold">
-            {{ __('Create a new can') }}
+            {{ __('Update a can') }}
         </h1>
     </x-slot>
     <x-slot>
-        <form action="{{route('cans.store')}}" method="post">
+        <form action="{{route('cans.update')}}" method="post">
             @csrf
 
             <div>
