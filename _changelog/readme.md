@@ -1,5 +1,18 @@
 ## Changelog
 
+## to do
+- delete brand and cans
+- add reviews to cans
+- add user collections to cans
+- add images to cans
+- add user authentication
+- admin panel
+- status button for cans (available, not available)
+- search function for cans and brands
+- filter function for cans (by brand, by type, by status)
+- owasp security check
+- styling improvements
+
 ## 29 oktober
 - Can show page works
 - Brand show page works

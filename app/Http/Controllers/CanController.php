@@ -107,21 +107,6 @@ class CanController extends Controller
         $can->country = $request->input('country');
         $can->sku = $request->input('sku');
         $can->gtin = $request->input('gtin');
-//        $can->update([
-//            'brand_id' => $request->input('brand_id'),
-//            'name' => $request->input('name'),
-//            'content' => $request->input('content'),
-//            'color' => $request->input('color'),
-//            'release_year' => $request->input('release_year'),
-//            'sugarfree' => $request->boolean('sugarfree'),
-//            'limited_edition' => $request->boolean('limited_edition'),
-//            'caffeine' => $request->input('caffeine'),
-//            'carbonated' => $request->boolean('carbonated'),
-//            'description' => $request->input('description'),
-//            'country' => $request->input('country'),
-//            'sku' => $request->input('sku'),
-//            'gtin' => $request->input('gtin'),
-//        ]);
 
         $can->save();
 

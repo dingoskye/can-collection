@@ -36,6 +36,10 @@ Route::get('/brands/{id}', [BrandController::class, 'show'])
     ->name('brands.details');
 Route::post('/brands', [BrandController::class, 'store'])
     ->name('brands.store');
+Route::get('/brands/edit/{id}', [BrandController::class, 'edit'])
+    ->name('brands.edit');
+Route::post('/brands/update/{id}', [BrandController::class, 'update'])
+    ->name('brands.update');
 
 Route::get('/cans', [CanController::class, 'index'])
     ->name('cans.index');

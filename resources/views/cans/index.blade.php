@@ -15,7 +15,7 @@
             </div>
         @endforeach
     </section>
-
+    <br>
     <a class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"
        href="{{ route('cans.create') }}">Add a new can</a>
 

@@ -15,8 +15,9 @@
             </div>
         @endforeach
     </section>
-
+    <br>
     <a class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"
        href="{{ route('brands.create') }}">Add a new brand</a>
+
 </x-slot>
 </x-app-layout>
