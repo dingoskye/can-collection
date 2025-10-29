@@ -33,7 +33,7 @@ class CanController extends Controller
             'sugarfree' => 'required|boolean',
             'calories' => 'required|integer|min:0',
             'limited_edition' => 'required|boolean',
-            'caffeine' => 'required|boolean',
+            'caffeine' => 'required|integer|min:0',
             'carbonated' => 'required|boolean',
             'description' => 'required|string',
             'country' => 'required|string|max:100',
@@ -47,34 +47,34 @@ class CanController extends Controller
         $can->content = $request->input('content');
         $can->color = $request->input('color');
         $can->release_year = $request->input('release_year');
-        $can->sugarfree = $request->input('sugarfree');
-        $can->limited_edition = $request->input('limited_edition');
+        $can->sugarfree = $request->boolean('sugarfree');
+        $can->calories = $request->input('calories');
+        $can->limited_edition = $request->boolean('limited_edition');
         $can->caffeine = $request->input('caffeine');
-        $can->carbonated = $request->input('carbonated');
+        $can->carbonated = $request->boolean('carbonated');
         $can->description = $request->input('description');
         $can->country = $request->input('country');
         $can->sku = $request->input('sku');
         $can->gtin = $request->input('gtin');
-        $can->created_by = $request->input('user_id');
 
         $can->save();
 
         return redirect()->route('cans.show', $can)->with('success', 'Can created successfully.');
     }
 
-    public function show(Can $can)
+    public function show($id)
     {
         $can = Can::find($id);
         return view('cans.show', compact('can'));
     }
 
-    public function edit(Can $can)
+    public function edit($id)
     {
+        $can = Can::find($id);
         $brands = Brand::all();
         return view('cans.edit', compact('can', 'brands'));
     }
-
-    public function update(Request $request, Can $can)
+    public function update(Request $request, string $id)
     {
         $request->validate([
             'brand_id' => 'required|exists:brands,id',
@@ -85,48 +85,46 @@ class CanController extends Controller
             'sugarfree' => 'required|boolean',
             'calories' => 'required|integer|min:0',
             'limited_edition' => 'required|boolean',
-            'caffeine' => 'required|boolean',
+            'caffeine' => 'required|integer|min:0',
             'carbonated' => 'required|boolean',
             'description' => 'required|string',
             'country' => 'required|string|max:100',
-            'sku' => 'nullable|string|max:100|unique:cans,sku',
-            'gtin' => 'nullable|string|max:100|unique:cans,gtin',
+            'sku' => 'nullable|string|max:100',
+            'gtin' => 'nullable|string|max:100',
         ]);
 
-//        $can = Can::find($id);
-//        $can->brand_id = $request->input('brand_id');
-//        $can->name = $request->input('name');
-//        $can->content = $request->input('content');
-//        $can->color = $request->input('color');
-//        $can->release_year = $request->input('release_year');
-//        $can->sugarfree = $request->input('sugarfree');
-//        $can->limited_edition = $request->input('limited_edition');
-//        $can->caffeine = $request->input('caffeine');
-//        $can->carbonated = $request->input('carbonated');
-//        $can->description = $request->input('description');
-//        $can->country = $request->input('country');
-//        $can->sku = $request->input('sku');
-//        $can->gtin = $request->input('gtin');
-//        $can->updated_by => auth()->id();
-        $can->update([
-            'brand_id' => $request->input('brand_id'),
-            'name' => $request->input('name'),
-            'content' => $request->input('content'),
-            'color' => $request->input('color'),
-            'release_year' => $request->input('release_year'),
-            'sugarfree' => $request->input('sugarfree'),
-            'limited_edition' => $request->input('limited_edition'),
-            'caffeine' => $request->input('caffeine'),
-            'carbonated' => $request->input('carbonated'),
-            'description' => $request->input('description'),
-            'country' => $request->input('country'),
-            'sku' => $request->input('sku'),
-            'gtin' => $request->input('gtin'),
-            'updated_by' => $request->input('user_id'),
-        ]);
+        $can = Can::find($id);
+        $can->brand_id = $request->input('brand_id');
+        $can->name = $request->input('name');
+        $can->content = $request->input('content');
+        $can->color = $request->input('color');
+        $can->release_year = $request->input('release_year');
+        $can->sugarfree = $request->input('sugarfree');
+        $can->limited_edition = $request->input('limited_edition');
+        $can->caffeine = $request->input('caffeine');
+        $can->carbonated = $request->input('carbonated');
+        $can->description = $request->input('description');
+        $can->country = $request->input('country');
+        $can->sku = $request->input('sku');
+        $can->gtin = $request->input('gtin');
+//        $can->update([
+//            'brand_id' => $request->input('brand_id'),
+//            'name' => $request->input('name'),
+//            'content' => $request->input('content'),
+//            'color' => $request->input('color'),
+//            'release_year' => $request->input('release_year'),
+//            'sugarfree' => $request->boolean('sugarfree'),
+//            'limited_edition' => $request->boolean('limited_edition'),
+//            'caffeine' => $request->input('caffeine'),
+//            'carbonated' => $request->boolean('carbonated'),
+//            'description' => $request->input('description'),
+//            'country' => $request->input('country'),
+//            'sku' => $request->input('sku'),
+//            'gtin' => $request->input('gtin'),
+//        ]);
 
         $can->save();
 
-        return redirect()->route('cans.details', $can)->with('success', 'Can updated successfully.');
+        return redirect()->route('cans.index');
     }
 }

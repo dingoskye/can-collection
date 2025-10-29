@@ -14,9 +14,9 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-bankgothic text-green-600 antialiased">
+    <body class="font-bankgothic text-green-600 antialiased flex-auto">
+    @include('layouts.nav')
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.nav')
 
             <!-- Page Heading -->
             @isset($header)
@@ -31,7 +31,7 @@
             <main>
                 {{ $slot }}
             </main>
-            @include('layouts.footer')
         </div>
+        @include('layouts.footer')
     </body>
 </html>

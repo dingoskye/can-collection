@@ -24,7 +24,7 @@
         </div>
         <div>
             <label for="content">Content</label>
-            <input type="number" value="{{old('content')}}" name="content" id="content"/>
+            <input type="text" value="{{old('content')}}" name="content" id="content"/>
             <x-input-error :messages="$errors->get('content')" class="mt-2" />
         </div>
         <div>
@@ -34,43 +34,43 @@
         </div>
         <div>
             <label for="release_year">Year released</label>
-            <input type="number" value="{{old('release_year')}}" name="release_year" id="release_year"/>
+            <input type="text" value="{{old('release_year')}}" name="release_year" id="release_year"/>
             <x-input-error :messages="$errors->get('release_year')" class="mt-2" />
         </div>
         <div>
             <label for="sugarfree">Sugarfree</label>
             <select id="sugarfree" name="sugarfree">
                 <option value="">-- Choose an option --</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
             </select>
             <x-input-error :messages="$errors->get('sugarfree')" class="mt-2" />
         </div>
         <div>
             <label for="calories">Calories</label>
-            <input type="number" value="{{old('calories')}}" name="calories" id="calories"/>
-            <x-input-error :messages="$errors->get('content')" class="mt-2" />
+            <input type="text" value="{{old('calories')}}" name="calories" id="calories"/>
+            <x-input-error :messages="$errors->get('calories')" class="mt-2" />
         </div>
         <div>
             <label for="limited_edition">Limited edition</label>
             <select id="limited_edition" name="limited_edition">
                 <option value="">-- Choose an option --</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
             </select>
             <x-input-error :messages="$errors->get('limited_edition')" class="mt-2" />
         </div>
         <div>
             <label for="caffeine">Caffeine</label>
-            <input type="number" value="{{old('caffeine')}}" name="caffeine" id="caffeine"/>
+            <input type="text" value="{{old('caffeine')}}" name="caffeine" id="caffeine"/>
             <x-input-error :messages="$errors->get('caffeine')" class="mt-2" />
         </div>
         <div>
             <label for="carbonated">Carbonated</label>
             <select id="carbonated" name="carbonated">
                 <option value="">-- Choose an option --</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
             </select>
             <x-input-error :messages="$errors->get('carbonated')" class="mt-2" />
         </div>
@@ -81,8 +81,8 @@
         </div>
         <div>
             <label for="country">Country</label>
-            <input type="text" value="{{old('content')}}" name="content" id="content"/>
-            <x-input-error :messages="$errors->get('content')" class="mt-2" />
+            <input type="text" value="{{old('country')}}" name="country" id="country"/>
+            <x-input-error :messages="$errors->get('country')" class="mt-2" />
         </div>
         <div>
             <label for="sku">Sku</label>

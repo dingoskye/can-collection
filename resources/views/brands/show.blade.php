@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        {{--    @dd($brands)--}}
+{{--            @dd($brand)--}}
         <h1 class="text-xl font-bold">
             {{ __('Brand Details') }}
         </h1>

@@ -1,5 +1,12 @@
 ## Changelog
 
+## 29 oktober
+- Can show page works
+- Brand show page works
+- Brand create page works
+- Can create page works
+- Can edit page works
+
 ## 28 oktober
 - Static images works
 - Changed some routes
