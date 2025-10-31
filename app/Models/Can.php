@@ -13,8 +13,12 @@ class Can extends Model
         return $this->belongsToMany(User::class, 'can_user')->withTimestamps();
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
     public function brands(): BelongsTo
     {
-        return $this->belongsTo(Brand::class, 'brands')->withTimestamps();
+        return $this->belongsTo(Brand::class, 'brand_id')->withTimestamps();
     }
 }

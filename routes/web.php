@@ -74,4 +74,11 @@ Route::get('/reviews/{id}', [ReviewController::class, 'show'])
     ->name('reviews.details');
 Route::post('/reviews', [ReviewController::class, 'store'])
     ->name('reviews.store');
+Route::get('/reviews/edit/{id}', [ReviewController::class, 'edit'])
+    ->name('reviews.edit');
+Route::post('/reviews/update/{id}', [ReviewController::class, 'update'])
+    ->name('reviews.update');
+Route::delete('/reviews/destroy/{id}', [ReviewController::class, 'destroy'])
+    ->name('reviews.destroy');
+
 

@@ -1,10 +1,11 @@
 ## Changelog
 
 ## to do
-- delete brand and cans
+- delete brand and cans (not needed yet)
 - add reviews to cans
 - add user collections to cans
-- add images to cans
+- add images to cans (and brands, maybe users, not needed yet)
+- add image upload function
 - add user authentication
 - admin panel
 - status button for cans (available, not available)
@@ -13,12 +14,17 @@
 - owasp security check
 - styling improvements
 
+## 31 oktober
+- Added relationships between review, can and user
+- Review crud functions almost work, goes wrong with foreign keys
+
 ## 29 oktober
 - Can show page works
 - Brand show page works
 - Brand create page works
 - Can create page works
 - Can edit page works
+- Brand edit page works
 
 ## 28 oktober
 - Static images works

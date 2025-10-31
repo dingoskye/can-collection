@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h1 class="text-xl font-bold">
-            {{ __('Create a review') }}
+            {{ __('Update your review') }}
         </h1>
     </x-slot>
     <x-slot>
-        <form action="{{route('reviews.store')}}" method="post">
+        <form action="{{route('reviews.update', $review->id)}}" method="post">
             @csrf
 
             <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
@@ -21,26 +21,12 @@
             </div>
             <div>
                 <label for="rating_taste">Rate the taste</label>
-                <select id="rating_taste" name="rating_taste" required>
-                    <option value="">-- Rate the taste --</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                <input type="text" value="{{old('rating_taste')}}" name="rating_taste" id="rating_taste" required/>
                 <x-input-error :messages="$errors->get('rating_taste')" class="mt-2" />
             </div>
             <div>
                 <label for="rating_design">Rate the design</label>
-                <select id="rating_design" name="rating_design" required>
-                    <option value="">-- Rate the design --</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                <input type="text" value="{{old('rating_design)')}}" name="rating_design" id="rating_design" required/>
                 <x-input-error :messages="$errors->get('rating_design')" class="mt-2" />
             </div>
             <div>
@@ -49,7 +35,7 @@
                 <x-input-error :messages="$errors->get('comment')" class="mt-2" />
             </div>
 
-            <input type="submit" name="submit" value="Create"/>
+            <input type="submit" name="submit" value="Update"/>
         </form>
     </x-slot>
 </x-app-layout>
