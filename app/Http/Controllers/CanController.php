@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Models\Can;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -13,7 +14,8 @@ class CanController extends Controller
     public function index()
     {
         $cans = Can::all();
-        return view('cans.index', compact('cans'));
+        $users = User::all();
+        return view('cans.index', compact('cans', 'users'));
     }
 
     public function create()

@@ -1,7 +1,6 @@
 ## Changelog
 
 ## to do
-- add user collections to cans
 - add user authentication
 - admin panel
 - search function for cans and brands
@@ -11,6 +10,7 @@
 - styling improvements
 
 ## later to do
+- updating can collection info 
 - delete brand and cans (not needed yet)
 - add images to cans (and brands, maybe users, not needed yet)
 - add image upload function
@@ -20,6 +20,9 @@
 - like system for reviews
 - advanced rating system for reviews (multiple categories)
 - add reviews to can pages
+
+## 2 november
+- Adding and removing cans from user collection works
 
 ## 1 november
 - added extra cans in database

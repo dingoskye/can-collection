@@ -12,6 +12,11 @@
                 <h2 class="text-lg text-center">Name: {{$can->name}}</h2>
                 <p>Description: {{ $can->description }}</p>
                 <a class="hover:text-nav" href="{{ route('cans.show', $can->id) }}">Details</a>
+                <form action="{{ route('collection.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="can_id" value="{{ $can->id }}">
+                    <button type="submit" class="bg-green-800 text-violet-300 px-3 py-1 rounded">Add to collection</button>
+                </form>
             </div>
         @endforeach
     </section>

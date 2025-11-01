@@ -56,20 +56,6 @@ Route::get('/cans/edit/{id}', [CanController::class, 'edit'])
 Route::post('/cans/update/{id}', [CanController::class, 'update'])
     ->name('cans.update');
 
-Route::get('/collection', [CanUserController::class, 'index'])
-    ->name('collection.index');
-Route::get('/collection/create', [CanUserController::class, 'create'])
-    ->name('collection.create');
-Route::get('/collection/{id}', [CanUserController::class, 'show'])
-    ->name('collection.details');
-Route::post('/collection', [CanUserController::class, 'store'])
-    ->name('collection.store');
-Route::get('/collection/edit/{id}', [CanUserController::class, 'edit'])
-    ->name('collection.edit');
-Route::post('/collection/update/{id}', [CanUserController::class, 'update'])
-    ->name('collection.update');
-
-
 Route::get('/reviews', [ReviewController::class, 'index'])
     ->name('reviews.index');
 Route::get('/reviews/create', [ReviewController::class, 'create'])
@@ -85,4 +71,17 @@ Route::post('/reviews/update/{id}', [ReviewController::class, 'update'])
 Route::delete('/reviews/destroy/{id}', [ReviewController::class, 'destroy'])
     ->name('reviews.destroy');
 
-
+Route::get('/collection', [CanUserController::class, 'index'])
+    ->name('collection.index');
+//Route::get('/collection/create', [CanUserController::class, 'create'])
+//    ->name('collection.create');
+Route::get('/collection/{id}', [CanUserController::class, 'show'])
+    ->name('collection.details');
+Route::post('/collection', [CanUserController::class, 'store'])
+    ->name('collection.store');
+Route::get('/collection/edit/{id}', [CanUserController::class, 'edit'])
+    ->name('collection.edit');
+Route::post('/collection/update/{id}', [CanUserController::class, 'update'])
+    ->name('collection.update');
+Route::delete('/collection/remove/{id}', [CanUserController::class, 'remove'])
+    ->name('collection.remove');

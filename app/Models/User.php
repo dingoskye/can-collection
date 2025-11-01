@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
     public function cans(): BelongsToMany
     {
-        return $this->belongsToMany(Can::class, 'can_user');
+        return $this->belongsToMany(Can::class, 'can_user')->withPivot(['is_favorite', 'condition', 'date_acquired', 'notes']);
     }
 
 }
