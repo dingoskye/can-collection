@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-{{--            @dd($can);--}}
+{{--            @dd($brand);--}}
         <h1 class="text-xl font-bold">
             {{ __('Can Details') }}
         </h1>
@@ -13,15 +13,15 @@
             <h2 class="text-xl font-bold">
                 {{ $can->name }}
             </h2>
-            <p>Brand: {{ $can->brand_id }}</p>
+            <p>Brand: {{ $can->brand->name }}</p>
             <p>Content: {{ $can->content }} ml</p>
             <p>Color: {{ $can->color }}</p>
             <p>Release Year: {{ $can->release_year }}</p>
-            <p>Sugarfree: {{ ucfirst($can->sugarfree) }}</p>
+            <p>Sugarfree: {{ ucfirst($can->sugarfree ? 'Yes' : 'No') }}</p>
             <p>Calories: {{ $can->calories }} kcal</p>
-            <p>Limited Edition: {{ ucfirst($can->limited_edition) }}</p>
+            <p>Limited Edition: {{ ucfirst($can->limited_edition ? 'Yes' : 'No') }}</p>
             <p>Caffeine: {{ ($can->caffeine) }}</p>
-            <p>Carbonated: {{ ($can->carbonated) }}</p>
+            <p>Carbonated: {{ ($can->carbonated ? 'Yes' : 'No') }}</p>
             <p>Description: {{ $can->description }}</p>
             <p>Country: {{ $can->country }}</p>
             <p>Sku: {{ $can->sku }}</p>

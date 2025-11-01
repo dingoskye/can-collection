@@ -18,18 +18,19 @@ class CanUserController extends Controller
 
     public function create()
     {
-//        return view('cans.create');
+        return view('collection.create');
     }
 
     public function show(Can $can)
     {
-//        return view('cans.show', compact('can'));
+        return view('cans.show', compact('can'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
             'can_id' => 'required|exists:cans,id',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         $user = Auth::user();
@@ -43,6 +44,18 @@ class CanUserController extends Controller
 
         return redirect()->route('collection.index')
             ->with('success', 'Blikje toegevoegd aan je collectie!');
+    }
+
+    public function edit($id)
+    {
+        $can = Can::find($id);
+
+        return view('collection.edit', compact('can'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Update logic if needed
     }
 
     public function destroy($id)

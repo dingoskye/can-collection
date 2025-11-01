@@ -17,7 +17,8 @@
                     </x-nav-link>
                     <x-nav-link :href="route('brands.index')">{{ __('Brands') }}</x-nav-link>
                     <x-nav-link :href="route('cans.index')">{{ __('Cans') }}</x-nav-link>
-                    <x-nav-link :href="route('reviews.index')">{{ __('Review') }}</x-nav-link>
+                    <x-nav-link :href="route('reviews.index')">{{ __('Reviews') }}</x-nav-link>
+                    <x-nav-link :href="route('collection.index')">{{ __('Your collection') }}</x-nav-link>
                 </div>
             </div>
 

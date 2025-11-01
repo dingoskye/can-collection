@@ -5,7 +5,7 @@
         </h1>
     </x-slot>
     <x-slot>
-        <form action="{{route('reviews.store')}}" method="post">
+        <form action="{{route('reviews.store')}}" method="post" >
             @csrf
 
             <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">

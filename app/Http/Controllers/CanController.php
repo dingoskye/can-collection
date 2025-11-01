@@ -65,7 +65,8 @@ class CanController extends Controller
     public function show($id)
     {
         $can = Can::find($id);
-        return view('cans.show', compact('can'));
+        $brand = Brand::find($id);
+        return view('cans.show', compact('can', 'brand'));
     }
 
     public function edit($id)

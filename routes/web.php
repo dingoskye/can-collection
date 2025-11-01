@@ -64,16 +64,20 @@ Route::get('/collection/{id}', [CanUserController::class, 'show'])
     ->name('collection.details');
 Route::post('/collection', [CanUserController::class, 'store'])
     ->name('collection.store');
+Route::get('/collection/edit/{id}', [CanUserController::class, 'edit'])
+    ->name('collection.edit');
+Route::post('/collection/update/{id}', [CanUserController::class, 'update'])
+    ->name('collection.update');
 
 
 Route::get('/reviews', [ReviewController::class, 'index'])
     ->name('reviews.index');
 Route::get('/reviews/create', [ReviewController::class, 'create'])
     ->name('reviews.create');
-Route::get('/reviews/{id}', [ReviewController::class, 'show'])
-    ->name('reviews.details');
 Route::post('/reviews', [ReviewController::class, 'store'])
     ->name('reviews.store');
+Route::get('/reviews/{id}', [ReviewController::class, 'show'])
+    ->name('reviews.details');
 Route::get('/reviews/edit/{id}', [ReviewController::class, 'edit'])
     ->name('reviews.edit');
 Route::post('/reviews/update/{id}', [ReviewController::class, 'update'])

@@ -9,6 +9,6 @@ class Brand extends Model
 {
     public function cans(): BelongsToMany
     {
-        return $this->belongsToMany(Can::class, 'cans')->withTimestamps();
+        return $this->belongsToMany(Can::class, 'cans');
     }
 }

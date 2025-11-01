@@ -48,13 +48,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function cans(): BelongsToMany
-    {
-        return $this->belongsToMany(Can::class, 'can_user')->withTimestamps();
-    }
-
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);
     }
+    public function cans(): BelongsToMany
+    {
+        return $this->belongsToMany(Can::class, 'can_user');
+    }
+
 }

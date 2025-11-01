@@ -1,18 +1,31 @@
 ## Changelog
 
 ## to do
-- delete brand and cans (not needed yet)
-- add reviews to cans
 - add user collections to cans
-- add images to cans (and brands, maybe users, not needed yet)
-- add image upload function
 - add user authentication
 - admin panel
-- status button for cans (available, not available)
 - search function for cans and brands
 - filter function for cans (by brand, by type, by status)
+- Schakelen van status met button in lijst
 - owasp security check
 - styling improvements
+
+## later to do
+- delete brand and cans (not needed yet)
+- add images to cans (and brands, maybe users, not needed yet)
+- add image upload function
+- status button for cans (available, not available)
+- Sharing collections with other users
+- comments on reviews
+- like system for reviews
+- advanced rating system for reviews (multiple categories)
+- add reviews to can pages
+
+## 1 november
+- added extra cans in database
+- fixed some bugs in can create and edit page
+- review create page works
+- fixed a problem with foreign keys in review database
 
 ## 31 oktober
 - Added relationships between review, can and user

@@ -11,7 +11,7 @@ class ReviewController extends Controller
 {
     public function index()
     {
-        $reviews = Review::all();
+        $reviews = Review::with(['user', 'can'])->latest()->get();
         return view('reviews.index', compact('reviews'));
     }
 
@@ -21,15 +21,9 @@ class ReviewController extends Controller
         return view('reviews.create', compact('cans'));
     }
 
-    public function show($id)
-    {
-        $review = Review::find($id);
-        return view('reviews.show', compact('review'));
-    }
-
     public function store(Request $request)
     {
-
+//      @dd($request);
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'can_id' => 'required|exists:cans,id',
@@ -48,6 +42,13 @@ class ReviewController extends Controller
         $review->save();
 
         return redirect()->route('reviews.index');
+    }
+
+    public function show($id)
+    {
+        $review = Review::find($id);
+        $can = Can::find($id);
+        return view('reviews.show', compact('review', 'can'));
     }
 
     public function edit($id)
