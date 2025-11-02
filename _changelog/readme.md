@@ -6,7 +6,7 @@
 - owasp security check
 - profile page for users
 
-## later to do
+## later to do (could haves)
 - updating can collection info 
 - styling improvements
 - delete brand and cans (not needed yet)
