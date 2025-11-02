@@ -1,12 +1,11 @@
 ## Changelog
 
 ## to do
-- add user authentication
 - Schakelen van status met button in lijst (review publish)
 - owasp security check
-- profile page for users
 
 ## later to do (could haves)
+- profile page extras for users
 - updating can collection info 
 - styling improvements
 - delete brand and cans (not needed yet)
@@ -24,6 +23,7 @@
 - admin panel works 
 - Toggle publish review still needs fixing
 - search en filter functions work in can index page
+- User Authentication 
 
 ## 1 november
 - added extra cans in database

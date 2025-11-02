@@ -6,6 +6,7 @@ use App\Http\Controllers\CanController;
 use App\Http\Controllers\CanUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Middleware\EnsureUserIsAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,74 +32,73 @@ Route::get('/contact', function () {
 
 Route::get('/brands', [BrandController::class, 'index'])
     ->name('brands.index');
-Route::get('/brands/create', [BrandController::class, 'create'])
-    ->name('brands.create');
 Route::get('/brands/{id}', [BrandController::class, 'show'])
     ->name('brands.details');
-Route::post('/brands', [BrandController::class, 'store'])
-    ->name('brands.store');
-Route::get('/brands/edit/{id}', [BrandController::class, 'edit'])
-    ->name('brands.edit');
-Route::post('/brands/update/{id}', [BrandController::class, 'update'])
-    ->name('brands.update');
 
 Route::get('/cans', [CanController::class, 'index'])
     ->name('cans.index');
-Route::get('/cans/create', [CanController::class, 'create'])
-    ->name('cans.create')
-    ->middleware('auth');
-Route::post('/cans', [CanController::class, 'store'])
-    ->name('cans.store')
-    ->middleware('auth');
 Route::get('/cans/{id}', [CanController::class, 'show'])
     ->name('cans.show');
-Route::get('/cans/edit/{id}', [CanController::class, 'edit'])
-    ->name('cans.edit');
-Route::post('/cans/update/{id}', [CanController::class, 'update'])
-    ->name('cans.update');
 
 Route::get('/reviews', [ReviewController::class, 'index'])
     ->name('reviews.index');
-Route::get('/reviews/create', [ReviewController::class, 'create'])
-    ->name('reviews.create');
-Route::post('/reviews', [ReviewController::class, 'store'])
-    ->name('reviews.store');
 Route::get('/reviews/{id}', [ReviewController::class, 'show'])
     ->name('reviews.details');
-Route::get('/reviews/edit/{id}', [ReviewController::class, 'edit'])
-    ->name('reviews.edit');
-Route::post('/reviews/update/{id}', [ReviewController::class, 'update'])
-    ->name('reviews.update');
-Route::delete('/reviews/destroy/{id}', [ReviewController::class, 'destroy'])
-    ->name('reviews.destroy');
 
-Route::get('/collection', [CanUserController::class, 'index'])
-    ->name('collection.index');
-//Route::get('/collection/create', [CanUserController::class, 'create'])
-//    ->name('collection.create');
-Route::get('/collection/{id}', [CanUserController::class, 'show'])
-    ->name('collection.details');
-Route::post('/collection', [CanUserController::class, 'store'])
-    ->name('collection.store');
-Route::get('/collection/edit/{id}', [CanUserController::class, 'edit'])
-    ->name('collection.edit');
-Route::post('/collection/update/{id}', [CanUserController::class, 'update'])
-    ->name('collection.update');
-Route::delete('/collection/remove/{id}', [CanUserController::class, 'remove'])
-    ->name('collection.remove');
+Route::middleware('auth')->group(function () {
+    // Brand auth
+    Route::get('/brands/create', [BrandController::class, 'create'])
+        ->name('brands.create');
+    Route::post('/brands', [BrandController::class, 'store'])
+        ->name('brands.store');
+    Route::get('/brands/edit/{id}', [BrandController::class, 'edit'])
+        ->name('brands.edit');
+    Route::post('/brands/update/{id}', [BrandController::class, 'update'])
+        ->name('brands.update');
 
-Route::get('/admin', [AdminController::class, 'index'])
-    ->name('admin.index');
-Route::get('/admin/users', [AdminController::class, 'users'])
-    ->name('admin.users');
-Route::get('/admin/brands', [AdminController::class, 'brands'])
-    ->name('admin.brands');
-Route::get('/admin/cans', [AdminController::class, 'cans'])
-    ->name('admin.cans');
-Route::get('/admin/reviews', [AdminController::class, 'reviews'])
-    ->name('admin.reviews');
-Route::get('/admin/review/toggle/{id}', [ReviewController::class, 'toggle'])
-    ->name('admin.review.toggle');
+    // Can auth
+    Route::get('/cans/create', [CanController::class, 'create'])
+        ->name('cans.create');
+    Route::post('/cans', [CanController::class, 'store'])
+        ->name('cans.store');
+    Route::get('/cans/edit/{id}', [CanController::class, 'edit'])
+        ->name('cans.edit');
+    Route::post('/cans/update/{id}', [CanController::class, 'update'])
+        ->name('cans.update');
 
+    // Reviews auth
+    Route::get('/reviews/create', [ReviewController::class, 'create'])
+        ->name('reviews.create');
+    Route::post('/reviews', [ReviewController::class, 'store'])
+        ->name('reviews.store');
+    Route::get('/reviews/edit/{id}', [ReviewController::class, 'edit'])
+        ->name('reviews.edit');
+    Route::post('/reviews/update/{id}', [ReviewController::class, 'update'])
+        ->name('reviews.update');
+    Route::delete('/reviews/destroy/{id}', [ReviewController::class, 'destroy'])
+        ->name('reviews.destroy');
 
+    // Collection auth
+    Route::get('/collection', [CanUserController::class, 'index'])
+        ->name('collection.index');
+    Route::get('/collection/{id}', [CanUserController::class, 'show'])
+        ->name('collection.details');
+    Route::post('/collection', [CanUserController::class, 'store'])
+        ->name('collection.store');
+    Route::post('/collection', [CanUserController::class, 'store'])->name('collection.store');
+    Route::get('/collection/edit/{id}', [CanUserController::class, 'edit'])->name('collection.edit');
+    Route::post('/collection/update/{id}', [CanUserController::class, 'update'])->name('collection.update');
+    Route::delete('/collection/remove/{id}', [CanUserController::class, 'remove'])->name('collection.remove');
+
+});
+
+// Admin pages: require auth plus an admin check (replace 'can:admin' with your admin middleware/ability)
+Route::middleware(['auth', EnsureUserIsAdmin::class])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
+    Route::get('/admin/brands', [AdminController::class, 'brands'])->name('admin.brands');
+    Route::get('/admin/cans', [AdminController::class, 'cans'])->name('admin.cans');
+    Route::get('/admin/reviews', [AdminController::class, 'reviews'])->name('admin.reviews');
+    Route::get('/admin/review/toggle/{id}', [ReviewController::class, 'toggle'])->name('admin.review.toggle');
+});
 

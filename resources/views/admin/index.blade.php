@@ -20,5 +20,20 @@
             <a class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"
                href="{{ route('admin.reviews') }}">Reviews</a>
         </div>
+        <div class="text-center p-2 flex">
+            <div class="flex-1 place-content-center">
+                <h2 class="text-xl font-bold">User views</h2>
+            </div>
+        </div>
+        <div class="w-full text-center flex gap-2 place-content-center">
+            <a class=" border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"
+               href="{{ route('cans.index') }}">Cans</a>
+            <a class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"
+               href="{{ route('brands.index') }}">Brands</a>
+            <a class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"
+               href="{{ route('reviews.index') }}">Review</a>
+            <a class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"
+               href="{{ route('collection.index') }}">Your Collection</a>
+        </div>
     </x-slot>
 </x-app-layout>
