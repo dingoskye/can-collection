@@ -10,8 +10,9 @@
         @foreach($cans as $can)
             <div class="flex-1 py-2 px-4 bg-review border-4 border-solid border-reviewborder rounded-2xl">
                 <h2 class="text-lg text-center">Name: {{$can->name}}</h2>
+                <p>Brand: {{ $can->brand->name }}</p>
                 <p>Description: {{ $can->description }}</p>
-                <a class="hover:text-nav" href="{{ route('cans.show', $can->id) }}">Details</a>
+                <a class="hover:text-nav " href="{{ route('cans.show', $can->id) }}">Details</a>
                 <form action="{{ route('collection.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="can_id" value="{{ $can->id }}">

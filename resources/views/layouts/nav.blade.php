@@ -9,17 +9,29 @@
                         <img src="{{ Vite::asset('resources/images/collectacan-high-resolution-logo-transparent.png') }}" alt="Logo" class="block h-9 w-auto text-gray-400">
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('brands.index')">{{ __('Brands') }}</x-nav-link>
-                    <x-nav-link :href="route('cans.index')">{{ __('Cans') }}</x-nav-link>
-                    <x-nav-link :href="route('reviews.index')">{{ __('Reviews') }}</x-nav-link>
-                    <x-nav-link :href="route('collection.index')">{{ __('Your collection') }}</x-nav-link>
-                </div>
+                @auth
+                        @if(Auth::user()->is_admin)
+                        <!-- Admin Links -->
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link :href="route('admin.index')">{{ __('Dashboarc') }}</x-nav-link>
+                            <x-nav-link :href="route('admin.brands')">{{ __('Brands') }}</x-nav-link>
+                            <x-nav-link :href="route('admin.cans')">{{ __('Cans') }}</x-nav-link>
+                            <x-nav-link :href="route('admin.reviews')">{{ __('Reviews') }}</x-nav-link>
+                            <x-nav-link :href="route('admin.users')">{{ __('Users') }}</x-nav-link>
+                        </div>
+                        @else
+                        <!-- Navigation Links -->
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                                {{ __('Dashboard') }}
+                            </x-nav-link>
+                            <x-nav-link :href="route('brands.index')">{{ __('Brands') }}</x-nav-link>
+                            <x-nav-link :href="route('cans.index')">{{ __('Cans') }}</x-nav-link>
+                            <x-nav-link :href="route('reviews.index')">{{ __('Reviews') }}</x-nav-link>
+                            <x-nav-link :href="route('collection.index')">{{ __('Your collection') }}</x-nav-link>
+                        </div>
+                        @endif
+                @endauth
             </div>
 
             <!-- Settings Dropdown -->

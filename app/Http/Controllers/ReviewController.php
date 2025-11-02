@@ -87,4 +87,23 @@ class ReviewController extends Controller
         $review->delete();
         return back()->with('success', 'Review deleted successfully.');
     }
+
+    public function toggle($id)
+    {
+        $review = Review::find($id);
+
+        if (Auth::user()->cannot('activate', $review)) {
+            return redirect()->route('home');
+        }
+
+        if ($review->published === 1) {
+            $review->published = 0;
+        } else if ($review->published === 0) {
+            $review->published = 1;
+        }
+
+        $review->save();
+        return redirect()->route('admin.reviews');
+    }
+
 }

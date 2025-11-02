@@ -2,7 +2,6 @@
 
 ## to do
 - add user authentication
-- admin panel
 - search function for cans and brands
 - filter function for cans (by brand, by type, by status)
 - Schakelen van status met button in lijst
@@ -10,6 +9,7 @@
 - styling improvements
 
 ## later to do
+- Review publish admin
 - updating can collection info 
 - delete brand and cans (not needed yet)
 - add images to cans (and brands, maybe users, not needed yet)
@@ -23,6 +23,8 @@
 
 ## 2 november
 - Adding and removing cans from user collection works
+- admin panel works 
+- Toggle publish review still needs fixing
 
 ## 1 november
 - added extra cans in database

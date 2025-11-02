@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CanController;
 use App\Http\Controllers\CanUserController;
@@ -85,3 +86,19 @@ Route::post('/collection/update/{id}', [CanUserController::class, 'update'])
     ->name('collection.update');
 Route::delete('/collection/remove/{id}', [CanUserController::class, 'remove'])
     ->name('collection.remove');
+
+Route::get('/admin', [AdminController::class, 'index'])
+    ->name('admin.index');
+Route::get('/admin/users', [AdminController::class, 'users'])
+    ->name('admin.users');
+Route::get('/admin/brands', [AdminController::class, 'brands'])
+    ->name('admin.brands');
+Route::get('/admin/cans', [AdminController::class, 'cans'])
+    ->name('admin.cans');
+Route::get('/admin/reviews', [AdminController::class, 'reviews'])
+    ->name('admin.reviews');
+Route::get('/admin/review/toggle/{id}', [ReviewController::class, 'toggle'])
+    ->name('admin.review.toggle');
+
+
+

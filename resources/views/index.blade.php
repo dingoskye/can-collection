@@ -11,6 +11,12 @@
             <a href="{{ route('cans.index') }}" class="block w-full text-center border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md text-xl font-semibold">
                 View Cans
             </a>
+            <a href="{{ route('reviews.index') }}" class="block w-full text-center border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md text-xl font-semibold">
+                View Reviews
+            </a>
+            <a href="{{ route('collection.index') }}" class="block w-full text-center border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md text-xl font-semibold">
+                View Your Collection
+            </a>
         </div>
     </x-slot>
 </x-app-layout>
