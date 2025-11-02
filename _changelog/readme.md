@@ -2,8 +2,6 @@
 
 ## to do
 - add user authentication
-- search function for cans and brands
-- filter function for cans (by brand, by type, by status)
 - Schakelen van status met button in lijst (review publish)
 - owasp security check
 - profile page for users
@@ -25,6 +23,7 @@
 - Adding and removing cans from user collection works
 - admin panel works 
 - Toggle publish review still needs fixing
+- search en filter functions work in can index page
 
 ## 1 november
 - added extra cans in database

@@ -6,52 +6,60 @@
     </x-slot>
     {{--    @dd($cans)--}}
 <x-slot>
-    <div class="flex justify-evenly">
-        <form class="flex gap-3" action="" method="get">
-{{--            filters:--}}
-            <div>
-                <select multiple class="border-4 border-reviewborder bg-reviewborder rounded-md"
-                        name="brand[]" id="brand">
-                    @foreach($brands as $brand)
-                        <option value="{{ $brand->name }}">{{ $brand->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div>
-                <select multiple class="border-4 border-reviewborder bg-reviewborder rounded-md"
-                        name="brand[]" id="brand">
-                    @foreach($brands as $brand)
-                        <option value="{{ $brand->name }}">{{ $brand->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div>
-                <select multiple class="border-4 border-reviewborder bg-reviewborder rounded-md"
-                        name="brand[]" id="brand">
-                    @foreach($brands as $brand)
-                        <option value="{{ $brand->name }}">{{ $brand->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div>
-                <select multiple class="border-4 border-reviewborder bg-reviewborder rounded-md"
-                        name="brand[]" id="brand">
-                    @foreach($brands as $brand)
-                        <option value="{{ $brand->name }}">{{ $brand->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-{{--            search --}}
-            <div>
-                <x-text-input id="name" class="block w-full" type="text" name="name" placeholder="Search" :value="old('name')"/>
-            </div>
 
-            <div class="text-center">
-                <x-primary-button class=" px-4 py-3">
-                    {{ __('Search') }}
-                </x-primary-button>
-            </div>
+    <div class="bg-base-200 shadow rounded-lg my-4">
+        <button type="button" id="toggleForm" class="w-full text-left text-lg font-medium px-4 py-3 outline-black bg-gray-200 rounded-lg">
+            Personal preferences
+        </button>
+
+        <div id="filterForm" class="collapse-content" style="display: none;">
+            <form class="flex flex-col" action="" method="get">
+                {{--            filters:--}}
+                <div class="flex flex-col mr-4 mb-4">
+                    <label for="brand_id">Brand</label>
+                    <select multiple class="border-4 border-reviewborder bg-reviewborder rounded-md"
+                            name="brand_id[]" id="brand_id">
+                        @foreach($brands as $brand)
+                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="flex flex-col mr-4 mb-4">
+                    <label for="sugarfree">Limited edition</label>
+                    <select multiple class="border-4 border-reviewborder bg-reviewborder rounded-md"
+                            name="sugarfree[]" id="sugarfree">
+                        <option value="">-- All --</option>
+                        <option value="1" {{ request('sugarfree') === '1' ? 'selected' : '' }}>Yes</option>
+                        <option value="0" {{ request('sugarfree') === '0' ? 'selected' : '' }}>No</option>
+                    </select>
+                </div>
+                <div class="flex flex-col mr-4 mb-4">
+                    <label for="limited_edition">Limited edition</label>
+                    <select multiple class="border-4 border-reviewborder bg-reviewborder rounded-md"
+                            name="limited_edition[]" id="limited_edition">
+                            <option value="">-- All --</option>
+                            <option value="1" {{ request('limited_edition') === '1' ? 'selected' : '' }}>Yes</option>
+                            <option value="0" {{ request('limited_edition') === '0' ? 'selected' : '' }}>No</option>
+                    </select>
+                </div>
+                {{--            search --}}
+                <div>
+                    <input id="name" class="block w-full" type="text" name="name" placeholder="Search" value="{{old('name')}}"/>
+                </div>
+
+                <div class="text-center">
+                    <button class=" px-4 py-3">
+                        {{ __('Search') }}
+                    </button>
+                </div>
+                <div>
+                    <a href="{{ route('cans.index') }}" class="text-gray-600 px-4 py-2 underline">
+                        Reset
+                    </a>
+                </div>
         </form>
+    </div>
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </div>
     <section class="grid grid-cols-3 gap-5">
         @foreach($cans as $can)

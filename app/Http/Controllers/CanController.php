@@ -11,11 +11,36 @@ use Illuminate\Validation\Rule;
 
 class CanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $cans = Can::all();
+        $query = Can::with('brand');
+
+        if ($request->filled('brand_id')) {
+            $query->where('brand_id', $request->input('brand_id'));
+        }
+
+        if ($request->filled('sugarfree')) {
+            $query->where('sugarfree', $request->input('sugarfree'));
+        }
+        if ($request->filled('limited_edition')) {
+            $query->where('limited_edition', $request->input('limited_edition'));
+        }
+
+        if ($request->filled('search')) {
+            $search = $request->input('search');
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('sku', 'like', "%{$search}%")
+                ->orWhere('gtin', 'like', "%{$search}%")
+                ->orWhereHas('brand', function ($q) use ($search) {
+                    $q->where('name', 'like', "%{$search}%");
+                });
+        }
+
+        $brands = Brand::all();
+        $cans = $query->latest()->get();
+//        $cans = Can::all();
         $users = User::all();
-        return view('cans.index', compact('cans', 'users'));
+        return view('cans.index', compact('cans', 'users', 'brands'));
     }
 
     public function create()
