@@ -4,13 +4,13 @@
 - add user authentication
 - search function for cans and brands
 - filter function for cans (by brand, by type, by status)
-- Schakelen van status met button in lijst
+- Schakelen van status met button in lijst (review publish)
 - owasp security check
-- styling improvements
+- profile page for users
 
 ## later to do
-- Review publish admin
 - updating can collection info 
+- styling improvements
 - delete brand and cans (not needed yet)
 - add images to cans (and brands, maybe users, not needed yet)
 - add image upload function
