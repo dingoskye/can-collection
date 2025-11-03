@@ -19,6 +19,10 @@
 - advanced rating system for reviews (multiple categories)
 - add reviews to can pages
 
+## 3 november
+- bug fix auth routes
+- bug fix nav links
+
 ## 2 november
 - Adding and removing cans from user collection works
 - admin panel works 
