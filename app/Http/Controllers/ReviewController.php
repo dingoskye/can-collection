@@ -92,9 +92,9 @@ class ReviewController extends Controller
     {
         $review = Review::find($id);
 
-        if (Auth::user()->cannot('activate', $review)) {
-            return redirect()->route('home');
-        }
+//        if (Auth::user()->cannot('publish', $review)) {
+//            return redirect()->route('home');
+//        }
 
         if ($review->published === 1) {
             $review->published = 0;
