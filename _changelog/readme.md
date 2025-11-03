@@ -3,6 +3,7 @@
 ## to do
 - Schakelen van status met button in lijst (review publish)
 - owasp security check
+- User mag pas na zoveel cans in collection een review publiceren
 
 ## later to do (could haves)
 - profile page extras for users

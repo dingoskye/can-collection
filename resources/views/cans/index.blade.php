@@ -25,7 +25,7 @@
                     </select>
                 </div>
                 <div class="flex flex-col mr-4 mb-4">
-                    <label for="sugarfree">Limited edition</label>
+                    <label for="sugarfree">Sugarfree</label>
                     <select multiple class="border-4 border-reviewborder bg-reviewborder rounded-md"
                             name="sugarfree[]" id="sugarfree">
                         <option value="">-- All --</option>
