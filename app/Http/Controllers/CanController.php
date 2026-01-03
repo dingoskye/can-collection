@@ -22,6 +22,7 @@ class CanController extends Controller
         if ($request->filled('sugarfree')) {
             $query->where('sugarfree', $request->input('sugarfree'));
         }
+
         if ($request->filled('limited_edition')) {
             $query->where('limited_edition', $request->input('limited_edition'));
         }

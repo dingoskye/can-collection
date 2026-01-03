@@ -12,7 +12,7 @@
                     <td class="px-2 py-1">Rating Taste</td>
                     <td class="px-2 py-1">Rating Design</td>
                     <td class="px-2 py-1">Comment</td>
-                    <td class="px-2 py-1">Unleashed?</td>
+                    <td class="px-2 py-1">Published?</td>
                 </tr>
                 @foreach($reviews as $review)
                     <tr class="text-center">
@@ -23,9 +23,9 @@
                         <td class="px-2 py-1">{{ $review->rating_design }}</td>
                         <td class="px-2 py-1">{{ $review->comment }}</td>
                         @if($review->published === 0)
-                            <td class="px-2 py-1"><a class="text-red hover:text-nav" href="{{ route('admin.review.toggle', $review->id) }}">Leashed</a></td>
+                            <td class="px-2 py-1"><a class="text-red hover:text-nav" href="{{ route('admin.review.toggle', $review->id) }}">Unpublished</a></td>
                         @else
-                            <td class="px-2 py-1"><a class="text-green hover:text-nav" href="{{ route('admin.review.toggle', $review->id) }}">Unleashed</a></td>
+                            <td class="px-2 py-1"><a class="text-green hover:text-nav" href="{{ route('admin.review.toggle', $review->id) }}">Published</a></td>
                         @endif
                     </tr>
                 @endforeach

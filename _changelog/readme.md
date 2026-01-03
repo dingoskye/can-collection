@@ -1,9 +1,9 @@
 ## Changelog
 
-## to do
-- Schakelen van status met button in lijst (review publish)
+## to do (must haves)
 - owasp security check
 - User mag pas na zoveel cans in collection een review publiceren
+- werkende zoekfunctie
 
 ## later to do (could haves)
 - profile page extras for users
@@ -18,6 +18,9 @@
 - like system for reviews
 - advanced rating system for reviews (multiple categories)
 - add reviews to can pages
+
+## 3 januari
+- Schakelen van status met button in lijst (review publish)
 
 ## 3 november
 - bug fix auth routes

@@ -5,6 +5,7 @@
 
     <section class="grid grid-cols-3 gap-5 mt-4">
         @foreach($reviews as $review)
+            @continue(! $review->published)
             <div class="flex flex-col justify-between flex-1 py-2 px-4 bg-review border-4 border-solid border-reviewborder rounded-2xl">
                 <div>
                     <h2 class="text-lg text-center font-bold">{{ $review->can->name }}</h2>
