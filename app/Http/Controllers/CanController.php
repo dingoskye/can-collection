@@ -27,8 +27,8 @@ class CanController extends Controller
             $query->where('limited_edition', $request->input('limited_edition'));
         }
 
-        if ($request->filled('search')) {
-            $search = $request->input('search');
+        if ($request->filled('name')) {
+            $search = $request->input('name');
             $query->where('name', 'like', "%{$search}%")
                 ->orWhere('sku', 'like', "%{$search}%")
                 ->orWhere('gtin', 'like', "%{$search}%")

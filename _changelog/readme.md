@@ -3,7 +3,7 @@
 ## to do (must haves)
 - owasp security check
 - User mag pas na zoveel cans in collection een review publiceren
-- werkende zoekfunctie
+- werkende zoekfunctie met tekst en checkboxes tegelijkertijd
 
 ## later to do (could haves)
 - profile page extras for users
@@ -21,6 +21,7 @@
 
 ## 3 januari
 - Schakelen van status met button in lijst (review publish)
+- werkende zoekfunctie met tekst
 
 ## 3 november
 - bug fix auth routes
