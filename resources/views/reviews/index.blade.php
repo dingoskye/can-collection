@@ -25,6 +25,17 @@
         @endforeach
     </section>
     <br>
-    <a class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"
-       href="{{ route('reviews.create') }}">New review</a>
+{{--    <a class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md"--}}
+{{--       href="{{ route('reviews.create') }}">New review</a>--}}
+
+    @can('unlock', App\Models\Review::class)
+        <a href="{{ route('reviews.create') }}"
+           class="border-4 border-reviewborder bg-reviewborder hover:bg-review px-4 py-2 rounded-md">
+            Schrijf een review
+        </a>
+    @else
+        <p class="text-sm text-green-600">
+            Verzamel minimaal 5 blikjes om een review te schrijven.
+        </p>
+    @endcan
 </x-app-layout>

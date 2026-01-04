@@ -2,10 +2,9 @@
 
 ## to do (must haves)
 - owasp security check
-- User mag pas na zoveel cans in collection een review publiceren
-- werkende zoekfunctie met tekst en checkboxes tegelijkertijd
 
 ## later to do (could haves)
+- werkende zoekfunctie met tekst en checkboxes tegelijkertijd
 - profile page extras for users
 - updating can collection info 
 - styling improvements
@@ -18,6 +17,9 @@
 - like system for reviews
 - advanced rating system for reviews (multiple categories)
 - add reviews to can pages
+
+## 4 januari
+- User mag pas na zoveel cans in collection een review publiceren
 
 ## 3 januari
 - Schakelen van status met button in lijst (review publish)

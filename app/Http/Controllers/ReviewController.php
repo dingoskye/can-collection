@@ -7,6 +7,9 @@ use Auth;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
+/**
+ * @method authorize(string $string, string $class)
+ */
 class ReviewController extends Controller
 {
     public function index()
@@ -23,6 +26,7 @@ class ReviewController extends Controller
 
     public function store(Request $request)
     {
+
 //      @dd($request);
         $request->validate([
             'user_id' => 'required|exists:users,id',
